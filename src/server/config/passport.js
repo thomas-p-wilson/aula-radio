@@ -22,6 +22,6 @@ export default () => {
     // Initialize strategies
     glob.sync(path.resolve(__dirname, 'strategies/**/*.js'))
         .forEach((strategy) => {
-            require(path.resolve(strategy))(); // eslint-disable-line global-require, import/no-dynamic-require
+            require(path.resolve(strategy)).default(); // eslint-disable-line global-require, import/no-dynamic-require
         });
 };
