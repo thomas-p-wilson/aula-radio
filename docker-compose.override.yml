@@ -1,0 +1,18 @@
+# https://docs.docker.com/compose/extends/
+#
+# This file is automatically loaded via docker-compose. Set local dev-specific
+# overrides for volumes and ports here.
+#
+# Strings and integers in this file replace those in docker-compose.yml
+# Arrays in this file are merged/appended to those in docker-compose.yml
+#
+version: '3.5'
+services:
+    web:
+        command: ["npx", "gulp", "dev"]
+        environment: 
+            NODE_ENV: development
+            DB_URI: mongodb://db:27017
+            SECRET: change-me
+        volumes:
+            - ./:/usr/src/app

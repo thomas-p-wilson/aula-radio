@@ -1,0 +1,145 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+        "airbnb"
+    ],
+    "plugins": [
+        "jsdoc",
+        "mocha",
+        "unicorn"
+    ],
+    "globals": {
+        "document": true,
+        "window": true
+    },
+    "rules": {
+        "no-underscore-dangle": "off",
+        "max-len": "off",
+        "prefer-rest-params": "off",
+        "no-param-reassign": "off",
+        "camelcase": "off",
+        "eol-last": "error",
+        "no-else-return": "error",
+        "arrow-body-style": "error",
+        "curly": [ "error", "all" ],
+        "padded-blocks": ["error", "never"],
+        "consistent-return": "off",
+        "class-methods-use-this": "off",
+        "no-unused-vars": "error",
+        "arrow-parens": [
+            "error",
+            "always"
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "operator-linebreak": [
+            "error",
+            "before"
+        ],
+        "no-console": "off",
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1,
+                "VariableDeclarator": { "var": 2, "let": 2, "const": 3 },
+                "outerIIFEBody": 1,
+                "MemberExpression": 1,
+                "FunctionDeclaration": {"body": 1, "parameters": 2},
+                "FunctionExpression": {"body": 1, "parameters": 2},
+                "CallExpression": {"arguments": 1},
+                "ArrayExpression": 1,
+                "ObjectExpression": 1,
+                "ignoredNodes": ["JSXElement *"]
+            }
+        ],
+        "no-warning-comments": [
+            "warn",
+            {
+                "terms": ["todo", "@todo", "fixme", "@fixme", "xxx", "@xxx", "refactor", "@refactor", "security", "@security"]
+            }
+        ],
+        "semi": "error",
+        "no-plusplus": "off",
+        "brace-style": "off",
+        "no-shadow": "off",
+        "no-unsafe-finally": "error",
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "never",
+                "objects": "never",
+                "imports": "never",
+                "exports": "never",
+                "functions": "never"
+            }
+        ],
+        "template-curly-spacing": [ "error", "always" ],
+
+        "require-jsdoc": "off",
+        "valid-jsdoc": [
+            "error",
+            {
+                "matchDescription": ".+",
+                "requireParamDescription": true,
+                "requireReturn": false,
+                "requireReturnType": true,
+                "requireReturnDescription": true,
+                "prefer": {
+                    "arg": "param",
+                    "argument": "param",
+                    "return": "returns",
+                    "virtual": "abstract"
+                },
+                "preferType": {
+                    "boolean": "Boolean",
+                    "number": "Number",
+                    "object": "Object",
+                    "string": "String"
+                }
+            }
+        ],
+
+        "import/extensions": "off",
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": "off",
+
+        "jsdoc/require-hyphen-before-param-description": "error",
+
+        "mocha/handle-done-callback": "error",
+        "mocha/no-exclusive-tests": "error",
+        "mocha/no-identical-title": "error",
+        "mocha/no-return-and-callback": "error",
+
+        "react/destructuring-assignment": "off",
+        "react/forbid-prop-types": "off",
+        "react/jsx-closing-bracket-location": [ "error", "after-props" ],
+        "react/jsx-curly-spacing": [ "error", "always" ],
+        "react/jsx-filename-extension": "off",
+        "react/jsx-first-prop-new-line": [ "error", "never" ],
+        "react/jsx-indent": [ "error", 4 ],
+        "react/jsx-indent-props": [ "error", 8 ],
+        "react/require-default-props": "off",
+
+        "unicorn/catch-error-name": ["error", {"name": "err"}],
+        "unicorn/explicit-length-check": "error",
+        "unicorn/no-abusive-eslint-disable": "error",
+        "unicorn/no-process-exit": "error",
+        "unicorn/throw-new-error": "error",
+        "unicorn/number-literal-case": "error",
+        "unicorn/escape-case": "error",
+        "unicorn/no-array-instanceof": "error",
+        "unicorn/no-new-buffer": "error",
+        "unicorn/no-hex-escape": "error",
+        "unicorn/custom-error-definition": "error",
+        "unicorn/prefer-starts-ends-with": "error",
+        "unicorn/prefer-type-error": "error"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "legacyDecorators": true
+        }
+    }
+}
