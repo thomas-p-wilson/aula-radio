@@ -5,6 +5,10 @@ import mongoose, { Schema } from 'mongoose';
  * authoring works.
  */
 const Artist = new Schema({
+    mbid: {
+        type: String,
+        unique: true
+    },
     name: {
         type: String,
         optional: false
@@ -36,7 +40,7 @@ const Artist = new Schema({
         type: Date,
         expires: 86400
     }
-});
+}, { strict: false });
 
 mongoose.model('Artist', Artist);
 export default Artist;

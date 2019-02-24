@@ -14,7 +14,7 @@ const User = new Schema({
         type: String
     },
     roles: [String]
-});
+}, { strict: false });
 
 
 User.methods.authenticate = function authenticate(password) {

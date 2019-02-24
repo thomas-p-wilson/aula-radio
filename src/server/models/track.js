@@ -5,13 +5,17 @@ import mongoose, { Schema } from 'mongoose';
  * binary track data.
  */
 const Track = new Schema({
+    mbid: {
+        type: String,
+        unique: true
+    },
     title: {
         type: String,
         optional: false
     },
     artist: {
         type: Schema.Types.ObjectId,
-        ref: 'Person'
+        ref: 'Artist'
     },
     album: {
         type: Schema.Types.ObjectId,
@@ -21,7 +25,7 @@ const Track = new Schema({
     createdAt: {
         type: Date
     }
-});
+}, { strict: false });
 
 mongoose.model('Track', Track);
 export default Track;
