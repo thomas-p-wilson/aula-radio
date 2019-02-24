@@ -8,7 +8,8 @@
     "lint": "eslint src",
     "test": "NODE_ENV=test mocha --compilers js:@babel/register test/**/*.test.js",
     "test:integration": "NODE_ENV=test mocha --compilers js:@babel/register test/**/*.it.js",
-    "start": "babel-node -- src/server/index.js",
+    "seed": "NODE_ENV=development babel-node -- test/seed.js",
+    "start": "NODE_ENV=development babel-node -- src/server/index.js",
     "build": "NODE_ENV=production webpack --mode production",
     "analyze": "WEBPACK_ANALYZER=1 NODE_ENV=production webpack --mode production"
   },
@@ -21,10 +22,12 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.3.1",
+    "@material-ui/core": "^3.9.2",
     "chalk": "^2.4.2",
     "compression": "^1.7.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.3",
+    "connected-react-router": "^6.3.1",
     "consolidate": "^0.15.1",
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
@@ -36,13 +39,22 @@
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-redux": "^6.0.1",
+    "react-router": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.1",
+    "redux-thunk": "^2.3.0",
     "swig": "^1.4.2"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
     "@babel/preset-env": "7.3.1",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
     "chai": "^4.2.0",
+    "concurrently": "^4.1.0",
     "del": "3.0.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
@@ -60,7 +72,11 @@
     "gulp-plumber": "1.2.1",
     "gulp-sourcemaps": "2.6.4",
     "mocha": "^5.2.0",
-    "supertest": "^3.4.2"
+    "strip-sourcemap-loader": "0.0.1",
+    "supertest": "^3.4.2",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
   },
   "peerDependencies": {}
 }

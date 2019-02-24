@@ -86,6 +86,28 @@ app.use(passport.initialize());
 app.use(passport.session());
 passportInit();
 
+// Webpack integration during development
+if (process.env.NODE_ENV === 'development') {
+    const webpack = require('webpack'); // eslint-disable-line global-require
+    const middleware = require('webpack-dev-middleware'); // eslint-disable-line global-require
+    const compiler = webpack(require('../../../webpack.config.js')); // eslint-disable-line global-require
+
+
+    app.use(middleware(compiler, {
+        contentBase: 'public/',
+        publicPath: 'http://0.0.0.0:3000',
+        host: '0.0.0.0',
+        port: 3001,
+        headers: {
+            'Access-Control-Allow-Origin': '*'
+        },
+        disableHostCheck: true,
+        hot: false,
+        inline: false,
+        logLevel: 'trace'
+    }));
+}
+
 // connect flash for flash messages
 app.use(flash());
 
