@@ -39,7 +39,8 @@ export const albums = {
 	},
 	thriller: {
 		title: 'Thriller',
-		released: '1982-11-30'
+		released: '1982-11-30',
+		cover: 'abc'
 	},
 	purplerain: {
 		title: 'Purple Rain',

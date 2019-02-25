@@ -35,45 +35,19 @@ describe('Track - Routes', () => {
         mongoose.connection.close();
     })
 
-    it('Cannot list tracks if not logged in', () => {
-        return agent
-            .get('/tracks')
-            .expect(401)
-    });
-
-    it('Can list tracks if logged in', () => {
-        return agent
-            .post('/auth/signin')
-            .send(fixtures.users.joe)
+    it('Can list tracks if not logged in', () => {
+        return agent.get('/tracks')
             .expect(200)
-            .then((res) => {
-                return agent
-                    .get('/tracks')
-                    .expect(200)
-                    .then(({ body }) => {
-                        expect(body.length).to.equal(2);
-                    })
+            .then(({ body }) => {
+                expect(body.length).to.equal(2);
             })
     });
 
-    it('Cannot get track if not logged in', () => {
-        return agent
-            .get(`/tracks/${ thriller._id }`)
-            .expect(401);
-    });
-
-    it('Can get track if logged in', () => {
-        return agent
-            .post('/auth/signin')
-            .send(fixtures.users.joe)
+    it('Can get track if not logged in', () => {
+        return agent.get(`/tracks/${ thriller._id }`)
             .expect(200)
-            .then((res) => {
-                return agent
-                    .get(`/tracks/${ thriller._id }`)
-                    .expect(200)
-                    .then(({ body }) => {
-                        expect(body.title).to.equal('Thriller');
-                    })
+            .then(({ body }) => {
+                expect(body.title).to.equal('Thriller');
             })
     });
 

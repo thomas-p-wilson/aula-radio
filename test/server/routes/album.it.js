@@ -30,45 +30,20 @@ describe('Album - Routes', () => {
 
     });
 
-    it('Cannot list albums if not logged in', () => {
-        return agent
-            .get('/albums')
-            .expect(401)
-    });
-
-    it('Can list albums if logged in', () => {
-        return agent
-            .post('/auth/signin')
-            .send(fixtures.users.joe)
+    it('Can list albums if not logged in', () => {
+        return agent.get('/albums')
             .expect(200)
-            .then((res) => {
-                return agent
-                    .get('/albums')
-                    .expect(200)
-                    .then(({ body }) => {
-                        expect(body.length).to.equal(2);
-                    })
+            .then(({ body }) => {
+                console.log('Body: ', body);
+                expect(body.length).to.equal(2);
             })
     });
 
-    it('Cannot get album if not logged in', () => {
-        return agent
-            .get(`/albums/${ thriller._id }`)
-            .expect(401);
-    });
-
-    it('Can get album if logged in', () => {
-        return agent
-            .post('/auth/signin')
-            .send(fixtures.users.joe)
+    it('Can get album if not logged in', () => {
+        return agent.get(`/albums/${ thriller._id }`)
             .expect(200)
-            .then((res) => {
-                return agent
-                    .get(`/albums/${ thriller._id }`)
-                    .expect(200)
-                    .then(({ body }) => {
-                        expect(body.title).to.equal('Thriller');
-                    })
+            .then(({ body }) => {
+                expect(body.title).to.equal('Thriller');
             })
     });
 

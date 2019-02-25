@@ -9,10 +9,18 @@
 version: '3.5'
 services:
     web:
-        command: ["npx", "gulp", "dev"]
+        # command: ["npx", "gulp", "dev"]
+        command: ["sh"]
         environment: 
             NODE_ENV: development
-            DB_URI: mongodb://db:27017
             SECRET: change-me
         volumes:
             - ./:/usr/src/app
+        stdin_open: true
+        tty: true
+    db:
+        ports:
+            - "27017:27017"
+        networks:
+            - private
+            - public

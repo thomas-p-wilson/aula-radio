@@ -5,7 +5,7 @@ import provider from './stream-providers/mongo';
 const Album = mongoose.model('Album');
 
 export function list(req, res, next) {
-    Album.find().lean()
+    Album.find({}, '-cover').limit(24).populate('artist').lean()
         .then((albums) => {
             res.send(albums);
         })
@@ -17,7 +17,7 @@ export function list(req, res, next) {
 }
 
 export function get(req, res, next) {
-    Album.findById(req.params.id)
+    Album.findById(req.params.id, '-cover')
         .then((album) => {
             res.send(album.toObject());
         })
@@ -59,6 +59,21 @@ export function remove(req, res, next) {
     Album.deleteOne({ _id: req.params.id })
         .then(() => {
             res.status(204).send();
+        })
+        .catch((err) => {
+            // TODO log the error centrally
+            res.status(500).send();
+        });
+}
+
+export function cover(req, res, next) {
+    Album.findById(req.params.id)
+        .then((album) => {
+            // console.log('Album: ', album);
+            // if (album.mime) {
+            //     res.contentType(album.mime);
+            // }
+            res.send(album.cover);
         })
         .catch((err) => {
             // TODO log the error centrally

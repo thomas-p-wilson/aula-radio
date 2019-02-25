@@ -10,6 +10,7 @@
     ],
     "globals": {
         "document": true,
+        "fetch": true,
         "window": true
     },
     "rules": {
@@ -20,12 +21,12 @@
         "camelcase": "off",
         "eol-last": "error",
         "no-else-return": "error",
-        "arrow-body-style": "error",
         "curly": [ "error", "all" ],
         "padded-blocks": ["error", "never"],
         "consistent-return": "off",
         "class-methods-use-this": "off",
         "no-unused-vars": "error",
+        "arrow-body-style": "off",
         "arrow-parens": [
             "error",
             "always"
@@ -63,7 +64,7 @@
         ],
         "semi": "error",
         "no-plusplus": "off",
-        "brace-style": "off",
+        "brace-style": [ "error", "1tbs", { "allowSingleLine": false } ],
         "no-shadow": "off",
         "no-unsafe-finally": "error",
         "comma-dangle": [
@@ -77,6 +78,7 @@
             }
         ],
         "template-curly-spacing": [ "error", "always" ],
+        "prefer-promise-reject-errors": "off",
 
         "require-jsdoc": "off",
         "valid-jsdoc": [
@@ -121,6 +123,7 @@
         "react/jsx-first-prop-new-line": [ "error", "never" ],
         "react/jsx-indent": [ "error", 4 ],
         "react/jsx-indent-props": [ "error", 8 ],
+        "react/jsx-one-expression-per-line": "off",
         "react/require-default-props": "off",
 
         "unicorn/catch-error-name": ["error", {"name": "err"}],

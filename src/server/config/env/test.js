@@ -10,7 +10,9 @@ export default {
     },
     logging: {
         options: {
-            skip: () => (true)
+            skip: () => {
+                return (true);
+            }
         }
     }
 };

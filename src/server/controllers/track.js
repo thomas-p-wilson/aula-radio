@@ -5,7 +5,8 @@ import provider from './stream-providers/mongo';
 const Track = mongoose.model('Track');
 
 export function list(req, res, next) {
-    Track.find().lean().select('-content')
+    Track.find({}, '-content').limit(24).populate('artist').populate('album', '-cover')
+        .lean()
         .then((tracks) => {
             res.send(tracks);
         })

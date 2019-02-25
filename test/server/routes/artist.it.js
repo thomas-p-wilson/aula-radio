@@ -30,45 +30,19 @@ describe('Artist - Routes', () => {
 
     });
 
-    it('Cannot list artists if not logged in', () => {
-        return agent
-            .get('/artists')
-            .expect(401)
-    });
-
-    it('Can list artists if logged in', () => {
-        return agent
-            .post('/auth/signin')
-            .send(fixtures.users.joe)
+    it('Can list artists if not logged in', () => {
+        return agent.get('/artists')
             .expect(200)
-            .then((res) => {
-                return agent
-                    .get('/artists')
-                    .expect(200)
-                    .then(({ body }) => {
-                        expect(body.length).to.equal(2);
-                    })
+            .then(({ body }) => {
+                expect(body.length).to.equal(2);
             })
     });
 
-    it('Cannot get artist if not logged in', () => {
-        return agent
-            .get(`/artists/${ jackson._id }`)
-            .expect(401);
-    });
-
-    it('Can get artist if logged in', () => {
-        return agent
-            .post('/auth/signin')
-            .send(fixtures.users.joe)
+    it('Can get artist if not logged in', () => {
+        return agent.get(`/artists/${ jackson._id }`)
             .expect(200)
-            .then((res) => {
-                return agent
-                    .get(`/artists/${ jackson._id }`)
-                    .expect(200)
-                    .then(({ body }) => {
-                        expect(body.name).to.equal('Michael Jackson');
-                    })
+            .then(({ body }) => {
+                expect(body.name).to.equal('Michael Jackson');
             })
     });
 

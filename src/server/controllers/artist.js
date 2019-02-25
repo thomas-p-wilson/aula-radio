@@ -5,7 +5,7 @@ import provider from './stream-providers/mongo';
 const Artist = mongoose.model('Artist');
 
 export function list(req, res, next) {
-    Artist.find().lean()
+    Artist.find({}).limit(24).lean()
         .then((artists) => {
             res.send(artists);
         })

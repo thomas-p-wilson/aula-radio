@@ -15,10 +15,24 @@
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
+
+		<style type="text/css">
+		html {
+			background: #153ba3; /* Old browsers */
+			background: -moz-linear-gradient(-70deg, #153ba3 0%, #6e94ff 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(-70deg, #153ba3 0%,#6e94ff 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(110deg, #153ba3 0%,#6e94ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#153ba3', endColorstr='#6e94ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		    background-repeat: no-repeat;
+		    background-attachment: fixed;
+		}
+		body {
+			padding-bottom: 70px;
+		}
+		</style>
 	</head>
 	<body>
-		<div id="root">
-		</div>
+		<div id="root"></div>
 
 		<script type="text/javascript" src="/bundle.js"></script>
 	</body>
